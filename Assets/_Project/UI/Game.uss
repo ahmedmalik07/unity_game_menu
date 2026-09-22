@@ -118,7 +118,7 @@
 
 .pause__kicker {
     font-size: 16px;
-    letter-spacing: 11px;
+    letter-spacing: 6px;
     -unity-font-style: bold;
     color: var(--c-accent);
     padding: 0;
@@ -126,10 +126,9 @@
 }
 
 .pause__title {
-    font-size: 96px;
-    letter-spacing: 18px;
+    font-size: 88px;
+    letter-spacing: 8px;
     -unity-font-style: bold;
-    text-shadow: 0 0 30px rgba(124, 243, 255, 0.4);
     padding: 0;
     margin: -4px 0 44px 0;
 }

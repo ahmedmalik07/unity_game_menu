@@ -25,6 +25,7 @@ namespace Aetherfall.Core
             Directory.CreateDirectory(outputFolder);
             // Show the "Continue" state in the shots.
             SaveSystem.StartNewJourney();
+            UIUtil.HoverFocus = false;
 
             var go = new GameObject("[ScreenshotDirector]");
             DontDestroyOnLoad(go);
@@ -35,45 +36,23 @@ namespace Aetherfall.Core
         {
             yield return Wait(4.5f);
             var menu = FindAnyObjectByType<MenuController>();
-
-            yield return Shot("01-main-menu");
+            yield return Shot("main-menu");
 
             menu.OpenSettings();
             yield return Wait(1f);
-            yield return Shot("02-settings-graphics");
-            menu.Settings.CycleTab(1);
-            yield return Wait(0.8f);
-            yield return Shot("03-settings-audio");
-            menu.Settings.CycleTab(1);
-            yield return Wait(0.8f);
-            yield return Shot("04-settings-gameplay");
+            yield return Shot("settings");
 
             menu.ShowMain();
             yield return Wait(0.6f);
-            menu.OpenCredits();
-            yield return Wait(1f);
-            yield return Shot("05-credits");
-
-            menu.ShowMain();
-            yield return Wait(0.6f);
-            menu.RequestNewGame();
-            yield return Wait(0.8f);
-            yield return Shot("06-confirm-dialog");
-            menu.CancelDialog();
-            yield return Wait(0.5f);
-
             menu.BeginJourney(newGame: false);
             yield return Wait(2.6f);
-            yield return Shot("07-loading");
+            yield return Shot("loading");
 
             while (SceneManager.GetActiveScene().name != Scenes.Game) yield return null;
             yield return Wait(2.2f);
-            yield return Shot("08-in-game-hud");
-
-            var pause = FindAnyObjectByType<PauseController>();
-            pause.Pause();
+            FindAnyObjectByType<PauseController>().Pause();
             yield return Wait(1f);
-            yield return Shot("09-pause-menu");
+            yield return Shot("pause-menu");
 
             Application.Quit();
         }

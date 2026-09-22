@@ -13,6 +13,9 @@ namespace Aetherfall.UI
 
         static float silentUntil;
 
+        /// <summary>Off while capturing screenshots, so a resting mouse pointer can't steal focus.</summary>
+        public static bool HoverFocus = true;
+
         /// <summary>
         /// Shows or hides an element using the USS "is-hidden" transition, then removes it from layout
         /// once the fade has finished.
@@ -62,7 +65,7 @@ namespace Aetherfall.UI
         public static void EnableHoverFocus(VisualElement element) =>
             element.RegisterCallback<PointerEnterEvent>(_ =>
             {
-                if (element.enabledInHierarchy && element.focusController?.focusedElement != element) element.Focus();
+                if (HoverFocus && element.enabledInHierarchy && element.focusController?.focusedElement != element) element.Focus();
             });
 
         public static void Bind(Button button, Action action, UISound sound = UISound.Confirm)

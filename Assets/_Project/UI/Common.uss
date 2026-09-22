@@ -116,7 +116,7 @@
     width: 640px;
     height: 74px;
     margin: 0 0 4px 0;
-    padding: 0 0 0 34px;
+    padding: 0 0 0 28px;
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     border-radius: 0;
@@ -163,38 +163,21 @@
     scale: 1 1;
 }
 
-.menu-button__index {
-    width: 54px;
-    font-size: 15px;
-    letter-spacing: 2px;
+
+
+.menu-button__label {
+    font-size: 32px;
+    letter-spacing: 4px;
     -unity-font-style: bold;
-    color: var(--c-muted);
+    color: rgba(234, 240, 255, 0.72);
     padding: 0;
     margin: 0;
     transition-property: color;
     transition-duration: 0.2s;
 }
 
-.menu-button:focus .menu-button__index {
-    color: var(--c-accent);
-}
-
-.menu-button__label {
-    font-size: 34px;
-    letter-spacing: 8px;
-    -unity-font-style: bold;
-    color: rgba(234, 240, 255, 0.72);
-    padding: 0;
-    margin: 0;
-    transition-property: color, letter-spacing;
-    transition-duration: 0.25s, 0.3s;
-    transition-timing-function: ease-out-cubic, ease-out-cubic;
-}
-
 .menu-button:focus .menu-button__label {
     color: #FFFFFF;
-    letter-spacing: 10px;
-    text-shadow: 0 0 18px rgba(124, 243, 255, 0.55);
 }
 
 .menu-button__meta {
@@ -219,9 +202,6 @@
     color: rgba(234, 240, 255, 0.22);
 }
 
-.menu-button:disabled .menu-button__index {
-    color: rgba(205, 214, 255, 0.2);
-}
 
 /* ----------------------------------------------------------- Pill buttons */
 
@@ -308,8 +288,8 @@
 }
 
 .panel__title {
-    font-size: 56px;
-    letter-spacing: 10px;
+    font-size: 52px;
+    letter-spacing: 4px;
     -unity-font-style: bold;
     padding: 0;
     margin: 0;

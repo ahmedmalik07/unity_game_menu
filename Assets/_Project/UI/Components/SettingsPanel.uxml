@@ -2,7 +2,6 @@
     <Style src="../Common.uss" />
     <ui:VisualElement class="panel panel--settings">
         <ui:VisualElement class="panel__header">
-            <ui:Label text="OPTIONS" class="panel__kicker" />
             <ui:Label text="SETTINGS" class="panel__title" />
         </ui:VisualElement>
         <ui:VisualElement class="tabs">

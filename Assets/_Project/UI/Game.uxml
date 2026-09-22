@@ -10,11 +10,11 @@
         <!-- ============================== HUD ============================== -->
         <ui:VisualElement name="hud" class="layer hud" picking-mode="Ignore">
             <ui:VisualElement name="objective" class="objective is-pre" picking-mode="Ignore">
-                <ui:Label text="CHAPTER I" class="objective__chapter" />
-                <ui:Label text="The Rift Opens" class="objective__title" />
+                <ui:Label text="CHAPTER 1" class="objective__chapter" />
+                <ui:Label text="The Rift" class="objective__title" />
                 <ui:VisualElement class="objective__row">
                     <ui:VisualElement class="objective__diamond" />
-                    <ui:Label text="Reach the Aether Spire" class="objective__text" />
+                    <ui:Label text="Reach the crystal" class="objective__text" />
                 </ui:VisualElement>
             </ui:VisualElement>
 
@@ -40,25 +40,21 @@
                     <ui:Button name="btn-resume" class="menu-button">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="01" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="RESUME" class="menu-button__label" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-pause-settings" class="menu-button">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="02" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="SETTINGS" class="menu-button__label" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-main-menu" class="menu-button">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="03" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="MAIN MENU" class="menu-button__label" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-pause-quit" class="menu-button">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="04" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="QUIT TO DESKTOP" class="menu-button__label" picking-mode="Ignore" />
                     </ui:Button>
                 </ui:VisualElement>

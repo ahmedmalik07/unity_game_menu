@@ -8,19 +8,14 @@
         <ui:VisualElement name="background" class="layer" picking-mode="Ignore" />
         <ui:VisualElement name="vignette" class="layer vignette" picking-mode="Ignore" />
 
-        <!-- ============================== MAIN ============================== -->
+        <!-- Main -->
         <ui:VisualElement name="screen-main" class="screen screen--main">
             <ui:VisualElement class="topbar" picking-mode="Ignore">
-                <ui:VisualElement class="topbar__status">
-                    <ui:VisualElement class="topbar__dot" />
-                    <ui:Label text="OFFLINE MODE" class="topbar__text" />
-                </ui:VisualElement>
                 <ui:Label name="clock" text="00:00" class="topbar__clock" />
             </ui:VisualElement>
 
             <ui:VisualElement class="main-column">
                 <ui:VisualElement name="brand" class="brand is-pre" picking-mode="Ignore">
-                    <ui:Label text="CHRONICLES OF THE SHATTERED SKY" class="brand__kicker" />
                     <ui:Label text="AETHERFALL" class="brand__title" />
                     <ui:VisualElement name="brand-rule" class="brand__rule" />
                 </ui:VisualElement>
@@ -29,49 +24,29 @@
                     <ui:Button name="btn-continue" class="menu-button is-pre">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="01" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="CONTINUE" class="menu-button__label" picking-mode="Ignore" />
                         <ui:Label name="continue-meta" text="" class="menu-button__meta" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-new-game" class="menu-button is-pre">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="02" class="menu-button__index" picking-mode="Ignore" />
-                        <ui:Label text="NEW JOURNEY" class="menu-button__label" picking-mode="Ignore" />
-                        <ui:Label text="BEGIN FROM THE FIRST SPIRE" class="menu-button__meta" picking-mode="Ignore" />
+                        <ui:Label text="NEW GAME" class="menu-button__label" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-settings" class="menu-button is-pre">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="03" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="SETTINGS" class="menu-button__label" picking-mode="Ignore" />
-                        <ui:Label text="GRAPHICS  ·  AUDIO  ·  GAMEPLAY" class="menu-button__meta" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-credits" class="menu-button is-pre">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="04" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="CREDITS" class="menu-button__label" picking-mode="Ignore" />
-                        <ui:Label text="THE PEOPLE BEHIND IT" class="menu-button__meta" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:Button name="btn-quit" class="menu-button is-pre">
                         <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
                         <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
-                        <ui:Label text="05" class="menu-button__index" picking-mode="Ignore" />
                         <ui:Label text="QUIT" class="menu-button__label" picking-mode="Ignore" />
-                        <ui:Label text="RETURN TO DESKTOP" class="menu-button__meta" picking-mode="Ignore" />
                     </ui:Button>
-                </ui:VisualElement>
-            </ui:VisualElement>
-
-            <ui:VisualElement name="news" class="news is-pre" picking-mode="Ignore">
-                <ui:VisualElement name="news-art" class="news__art">
-                    <ui:Label text="SEASON ONE" class="news__chip" />
-                </ui:VisualElement>
-                <ui:VisualElement class="news__body">
-                    <ui:Label text="WHAT'S NEW" class="news__kicker" />
-                    <ui:Label text="The Rift Opens" class="news__title" />
-                    <ui:Label text="Chart the shattered isles, bind the wandering spirits and uncover what tore the sky apart." class="news__text" />
                 </ui:VisualElement>
             </ui:VisualElement>
 
@@ -94,48 +69,27 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ============================== SETTINGS ============================== -->
+        <!-- Settings -->
         <ui:Instance template="SettingsPanel" name="screen-settings" class="screen screen--center" />
 
-        <!-- ============================== CREDITS ============================== -->
+        <!-- Credits -->
         <ui:VisualElement name="screen-credits" class="screen screen--center">
             <ui:VisualElement class="panel panel--credits">
                 <ui:VisualElement class="panel__header">
-                    <ui:Label text="THE PEOPLE BEHIND IT" class="panel__kicker" />
                     <ui:Label text="CREDITS" class="panel__title" />
                 </ui:VisualElement>
                 <ui:VisualElement class="credits">
-                    <ui:VisualElement class="credits__column">
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="CREATED BY" class="credits__role" />
-                            <ui:Label text="ahmedmalik07" class="credits__name" />
-                        </ui:VisualElement>
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="MENU DESIGN &amp; UI ENGINEERING" class="credits__role" />
-                            <ui:Label text="ahmedmalik07 with Claude Code" class="credits__name" />
-                        </ui:VisualElement>
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="MUSIC &amp; SOUND" class="credits__role" />
-                            <ui:Label text="Synthesised in real time, in-engine" class="credits__name" />
-                        </ui:VisualElement>
+                    <ui:VisualElement class="credits__entry">
+                        <ui:Label text="MADE BY" class="credits__role" />
+                        <ui:Label text="ahmedmalik07" class="credits__name" />
                     </ui:VisualElement>
-                    <ui:VisualElement class="credits__column">
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="ENGINE" class="credits__role" />
-                            <ui:Label text="Unity 6  ·  UI Toolkit" class="credits__name" />
-                        </ui:VisualElement>
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="ART DIRECTION" class="credits__role" />
-                            <ui:Label text="Procedural  ·  zero image assets" class="credits__name" />
-                        </ui:VisualElement>
-                        <ui:VisualElement class="credits__entry">
-                            <ui:Label text="SPECIAL THANKS" class="credits__role" />
-                            <ui:Label text="Everyone who presses Continue" class="credits__name" />
-                        </ui:VisualElement>
+                    <ui:VisualElement class="credits__entry">
+                        <ui:Label text="ENGINE" class="credits__role" />
+                        <ui:Label text="Unity 6" class="credits__name" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement class="panel__footer">
-                    <ui:Label text="Thank you for playing." class="setting-description" />
+                    <ui:Label text="Thanks for playing!" class="setting-description" />
                     <ui:VisualElement class="panel__actions">
                         <ui:Button name="btn-credits-back" text="BACK" class="pill-button pill-button--primary" />
                     </ui:VisualElement>
@@ -143,11 +97,11 @@
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ============================== LOADING ============================== -->
+        <!-- Loading -->
         <ui:VisualElement name="screen-loading" class="screen screen--loading" picking-mode="Ignore">
             <ui:VisualElement class="loading" picking-mode="Ignore">
-                <ui:Label name="loading-chapter" text="CHAPTER I" class="loading__chapter" />
-                <ui:Label name="loading-title" text="The Rift Opens" class="loading__title" />
+                <ui:Label name="loading-chapter" text="CHAPTER 1" class="loading__chapter" />
+                <ui:Label name="loading-title" text="The Rift" class="loading__title" />
                 <ui:Label name="loading-tip" text="" class="loading__tip" />
                 <ui:VisualElement class="loading__bar">
                     <ui:VisualElement name="loading-fill" class="loading__fill" />
@@ -155,7 +109,7 @@
                 <ui:VisualElement class="loading__row">
                     <ui:VisualElement class="loading__status-group">
                         <ui:VisualElement name="loading-spinner" class="loading__spinner" />
-                        <ui:Label name="loading-status" text="WEAVING THE AETHER" class="loading__status" />
+                        <ui:Label name="loading-status" text="LOADING" class="loading__status" />
                     </ui:VisualElement>
                     <ui:Label name="loading-percent" text="0%" class="loading__percent" />
                 </ui:VisualElement>

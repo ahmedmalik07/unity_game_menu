@@ -44,10 +44,10 @@ namespace Aetherfall.UI
 
             (Color color, Vector2 anchor, float size)[] glows =
             {
-                (new Color(0.42f, 0.24f, 1.00f, 0.34f), new Vector2(0.18f, 0.28f), 1250f),
-                (new Color(0.12f, 0.80f, 0.98f, 0.20f), new Vector2(0.78f, 0.18f), 1000f),
-                (new Color(1.00f, 0.24f, 0.56f, 0.16f), new Vector2(0.62f, 0.86f), 1100f),
-                (new Color(0.16f, 0.30f, 0.95f, 0.30f), new Vector2(0.10f, 0.95f), 1300f),
+                (new Color(0.36f, 0.26f, 0.85f, 0.22f), new Vector2(0.18f, 0.28f), 1250f),
+                (new Color(0.14f, 0.62f, 0.80f, 0.12f), new Vector2(0.78f, 0.18f), 1000f),
+                (new Color(0.80f, 0.28f, 0.50f, 0.08f), new Vector2(0.62f, 0.86f), 1100f),
+                (new Color(0.16f, 0.28f, 0.80f, 0.20f), new Vector2(0.10f, 0.95f), 1300f),
             };
             nebulae = new Nebula[glows.Length];
             for (int i = 0; i < glows.Length; i++)

@@ -45,10 +45,10 @@ namespace Aetherfall.UI
                 Show(settingsScreen, null);
                 settings.Open();
             });
-            UIUtil.Bind(root.Q<Button>("btn-main-menu"), () => dialog.Show("RETURN TO TITLE", "Leave this journey?",
-                "You will return to the main menu. Progress is saved at every Spire.", "MAIN MENU", ReturnToMenu, pauseScreen));
-            UIUtil.Bind(root.Q<Button>("btn-pause-quit"), () => dialog.Show("QUIT TO DESKTOP", "Close the game?",
-                "Your journey was saved at the last Spire you rested at.", "QUIT GAME", Quit, pauseScreen, destructive: true));
+            UIUtil.Bind(root.Q<Button>("btn-main-menu"), () => dialog.Show("MAIN MENU", "Back to the main menu?",
+                "Your progress is saved.", "MAIN MENU", ReturnToMenu, pauseScreen));
+            UIUtil.Bind(root.Q<Button>("btn-pause-quit"), () => dialog.Show("QUIT", "Quit the game?",
+                "Your progress is saved.", "QUIT", Quit, pauseScreen, destructive: true));
 
             UIUtil.SetVisible(pauseScreen, false, instant: true);
             UIUtil.SetVisible(settingsScreen, false, instant: true);

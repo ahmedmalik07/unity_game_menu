@@ -85,44 +85,44 @@ namespace Aetherfall.UI
         void BuildRows()
         {
             var graphics = pages[0];
-            Add(graphics, new OptionStepper("Display Mode", "Borderless keeps alt-tab instant; Fullscreen gives the GPU exclusive control.",
+            Add(graphics, new OptionStepper("Display Mode", "Fullscreen, borderless window or windowed.",
                 () => GameSettings.DisplayModeNames, () => GameSettings.DisplayMode,
                 v => { GameSettings.DisplayMode = v; GameSettings.ApplyDisplay(); }));
-            Add(graphics, new OptionStepper("Resolution", "Rendering resolution of the game window.",
+            Add(graphics, new OptionStepper("Resolution", "Screen resolution.",
                 () => GameSettings.ResolutionNames, () => GameSettings.Resolution,
                 v => { GameSettings.Resolution = v; GameSettings.ApplyDisplay(); }));
-            Add(graphics, new OptionStepper("Quality Preset", "Overall visual fidelity. Lower presets run faster on older hardware.",
+            Add(graphics, new OptionStepper("Quality Preset", "Lower this if the game runs slowly.",
                 () => GameSettings.QualityNames, () => GameSettings.Quality,
                 v => { GameSettings.Quality = v; GameSettings.ApplyGraphics(); }));
-            Add(graphics, new OptionStepper("V-Sync", "Synchronise frames to your display to remove tearing.",
+            Add(graphics, new OptionStepper("V-Sync", "Stops screen tearing.",
                 () => GameSettings.OnOffNames, () => GameSettings.VSync,
                 v => { GameSettings.VSync = v; GameSettings.ApplyGraphics(); }));
-            Add(graphics, new OptionStepper("Frame Rate Limit", "Cap the frame rate to save power and keep fans quiet. Ignored while V-Sync is on.",
+            Add(graphics, new OptionStepper("Frame Rate Limit", "Maximum frame rate. Has no effect while V-Sync is on.",
                 () => GameSettings.FrameLimitNames, () => GameSettings.FrameLimit,
                 v => { GameSettings.FrameLimit = v; GameSettings.ApplyGraphics(); }));
 
             var audio = pages[1];
-            Add(audio, new SettingSlider("Master Volume", "Overall loudness of the game.",
+            Add(audio, new SettingSlider("Master Volume", "Overall volume.",
                 () => GameSettings.MasterVolume, v => { GameSettings.MasterVolume = v; AudioManager.Instance.ApplyVolumes(); }));
-            Add(audio, new SettingSlider("Music", "Volume of the soundtrack.",
+            Add(audio, new SettingSlider("Music", "Music volume.",
                 () => GameSettings.MusicVolume, v => GameSettings.MusicVolume = v));
-            Add(audio, new SettingSlider("Effects", "Volume of interface and world sound effects.",
+            Add(audio, new SettingSlider("Effects", "Sound effects volume.",
                 () => GameSettings.EffectsVolume, v => { GameSettings.EffectsVolume = v; AudioManager.Instance.ApplyVolumes(); }));
-            Add(audio, new OptionStepper("Mute In Background", "Silence the game while its window is not focused.",
+            Add(audio, new OptionStepper("Mute In Background", "Mute the game when you switch to another window.",
                 () => GameSettings.OnOffNames, () => GameSettings.MuteInBackground, v => GameSettings.MuteInBackground = v));
 
             var gameplay = pages[2];
-            Add(gameplay, new OptionStepper("Difficulty", "Story: focus on exploration. Balanced: the intended challenge. Veteran: every mistake matters.",
+            Add(gameplay, new OptionStepper("Difficulty", "Game difficulty.",
                 () => GameSettings.DifficultyNames, () => GameSettings.Difficulty, v => GameSettings.Difficulty = v));
-            Add(gameplay, new SettingSlider("Look Sensitivity", "How fast the camera turns with the mouse or right stick.",
+            Add(gameplay, new SettingSlider("Look Sensitivity", "Mouse and right stick sensitivity.",
                 () => GameSettings.Sensitivity, v => GameSettings.Sensitivity = v,
                 v => $"{Mathf.Lerp(0.2f, 3f, v):0.0}x"));
-            Add(gameplay, new OptionStepper("Invert Y Axis", "Push forward to look down, like a flight stick.",
+            Add(gameplay, new OptionStepper("Invert Y Axis", "Invert vertical camera movement.",
                 () => GameSettings.OnOffNames, () => GameSettings.InvertY, v => GameSettings.InvertY = v));
-            Add(gameplay, new SettingSlider("Field Of View", "Wider angles show more of the world; narrower ones feel more cinematic.",
+            Add(gameplay, new SettingSlider("Field Of View", "Camera field of view.",
                 () => GameSettings.FieldOfView, v => GameSettings.FieldOfView = v,
                 v => $"{Mathf.RoundToInt(Mathf.Lerp(60f, 110f, v))}°", step: 0.02f));
-            Add(gameplay, new OptionStepper("Subtitles", "Show dialogue and important sounds as text.",
+            Add(gameplay, new OptionStepper("Subtitles", "Show subtitles for dialogue.",
                 () => GameSettings.OnOffNames, () => GameSettings.Subtitles, v => GameSettings.Subtitles = v));
         }
 

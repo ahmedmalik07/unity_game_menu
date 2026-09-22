@@ -150,7 +150,7 @@ namespace Aetherfall.Editor
             floor.transform.localScale = new Vector3(8f, 1f, 8f);
             floor.GetComponent<Renderer>().sharedMaterial = ground;
 
-            var world = new GameObject("Aether Spire").transform;
+            var world = new GameObject("Crystal Shrine").transform;
 
             var plinth = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
             plinth.name = "Plinth";

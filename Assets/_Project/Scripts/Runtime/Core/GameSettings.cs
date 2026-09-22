@@ -17,7 +17,7 @@ namespace Aetherfall.Core
         public static readonly string[] OnOffNames = { "OFF", "ON" };
         public static readonly string[] FrameLimitNames = { "30 FPS", "60 FPS", "120 FPS", "144 FPS", "UNLIMITED" };
         static readonly int[] FrameLimits = { 30, 60, 120, 144, -1 };
-        public static readonly string[] DifficultyNames = { "STORY", "BALANCED", "VETERAN" };
+        public static readonly string[] DifficultyNames = { "EASY", "NORMAL", "HARD" };
 
         // Graphics
         public static int DisplayMode;

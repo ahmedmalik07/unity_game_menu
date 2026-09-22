@@ -19,14 +19,11 @@ namespace Aetherfall.UI
 
         static readonly string[] Tips =
         {
-            "Aether shards glow brighter when a rift is near. Follow the light.",
-            "Spirits you bind remember how you treated them.",
-            "Resting at a Spire restores your strength and saves your journey.",
-            "The sky cracked long before the war. Some say it was opened on purpose.",
-            "Hold your ground: a perfectly timed parry staggers even the largest foes.",
+            "Press Esc at any time to pause the game.",
+            "You can change graphics, audio and controls in Settings.",
+            "The game saves automatically when a level starts.",
+            "Controllers are supported. Use LB and RB to switch settings tabs.",
         };
-
-        static readonly string[] LoadingStates = { "WEAVING THE AETHER", "CHARTING THE RIFT", "WAKING THE SPIRE", "READY" };
 
         VisualElement root;
         VisualElement mainScreen, settingsScreen, creditsScreen, loadingScreen;
@@ -74,7 +71,6 @@ namespace Aetherfall.UI
             root.Q("brand-rule").style.backgroundImage = UITextures.HorizontalFade(new Color(0.49f, 0.95f, 1f, 0.9f));
             root.Query(className: "menu-button__glow").ForEach(glow =>
                 glow.style.backgroundImage = UITextures.HorizontalFade(new Color(0.49f, 0.95f, 1f, 0.22f)));
-            root.Q("news-art").Insert(0, new CardArt());
             root.Q("loading-spinner").Add(new Spinner());
 
             continueButton = root.Q<Button>("btn-continue");
@@ -105,7 +101,6 @@ namespace Aetherfall.UI
             UIUtil.Reveal(root.Q("brand"), 250);
             int i = 0;
             mainScreen.Query(className: "menu-button").ForEach(button => UIUtil.Reveal(button, 520 + 70 * i++));
-            UIUtil.Reveal(root.Q("news"), 900);
             UIUtil.Reveal(root.Q("footer"), 1000);
             UIUtil.FocusLater(FirstMainButton(), 700);
         }
@@ -114,7 +109,7 @@ namespace Aetherfall.UI
         {
             bool hasSave = SaveSystem.HasSave;
             continueButton.SetEnabled(hasSave);
-            continueMeta.text = hasSave ? SaveSystem.Describe() : "NO JOURNEY YET";
+            continueMeta.text = hasSave ? SaveSystem.Describe() : "NO SAVE";
         }
 
         VisualElement FirstMainButton() => continueButton.enabledSelf ? continueButton : root.Q<Button>("btn-new-game");
@@ -194,16 +189,16 @@ namespace Aetherfall.UI
                 BeginJourney(newGame: true);
                 return;
             }
-            dialog.Show("NEW JOURNEY", "Start over?",
-                "Beginning a new journey will overwrite your current progress. This cannot be undone.",
-                "START OVER", () => BeginJourney(newGame: true), mainScreen, destructive: true);
+            dialog.Show("NEW GAME", "Start a new game?",
+                "This will overwrite your current save.",
+                "START", () => BeginJourney(newGame: true), mainScreen, destructive: true);
         }
 
         public void RequestQuit()
         {
-            dialog.Show("LEAVING SO SOON?", "Quit Aetherfall?",
-                "Your journey was saved at the last Spire you rested at.",
-                "QUIT GAME", Quit, current, destructive: true, cancelText: "STAY");
+            dialog.Show("QUIT", "Quit the game?",
+                "Your progress is saved.",
+                "QUIT", Quit, current, destructive: true);
         }
 
         static void Quit()
@@ -234,7 +229,7 @@ namespace Aetherfall.UI
             fader.AddToClassList("fader--on");
             yield return new WaitForSecondsRealtime(0.6f);
 
-            root.Q<Label>("loading-chapter").text = $"CHAPTER {SaveSystem.ToRoman(SaveSystem.Chapter)}";
+            root.Q<Label>("loading-chapter").text = $"CHAPTER {SaveSystem.Chapter}";
             UIUtil.SetVisible(current, false, instant: true);
             UIUtil.SetVisible(loadingScreen, true);
             current = loadingScreen;
@@ -256,7 +251,6 @@ namespace Aetherfall.UI
 
             var fill = root.Q("loading-fill");
             var percent = root.Q<Label>("loading-percent");
-            var status = root.Q<Label>("loading-status");
 
             var operation = SceneManager.LoadSceneAsync(Scenes.Game);
             operation.allowSceneActivation = false;
@@ -270,7 +264,6 @@ namespace Aetherfall.UI
                 shown = Mathf.MoveTowards(shown, Mathf.Min(real, paced), Time.unscaledDeltaTime * 1.2f);
                 fill.style.width = Length.Percent(shown * 100f);
                 percent.text = $"{Mathf.RoundToInt(shown * 100f)}%";
-                status.text = LoadingStates[Mathf.Min(LoadingStates.Length - 1, (int)(shown * (LoadingStates.Length - 1)))];
                 yield return null;
             }
 

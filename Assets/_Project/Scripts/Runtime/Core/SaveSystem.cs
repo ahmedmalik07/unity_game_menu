@@ -32,13 +32,7 @@ namespace Aetherfall.Core
             PlayerPrefs.Save();
         }
 
-        public static string Describe() => $"CHAPTER {ToRoman(Chapter)}  ·  {Relative(LastPlayed)}";
-
-        public static string ToRoman(int n)
-        {
-            string[] numerals = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
-            return n >= 1 && n <= numerals.Length ? numerals[n - 1] : n.ToString();
-        }
+        public static string Describe() => $"CHAPTER {Chapter}  ·  {Relative(LastPlayed)}";
 
         static string Relative(DateTime time)
         {
