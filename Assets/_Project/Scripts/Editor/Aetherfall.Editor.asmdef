@@ -1,0 +1,9 @@
+{
+    "name": "Aetherfall.Editor",
+    "rootNamespace": "Aetherfall.Editor",
+    "references": ["Aetherfall.Runtime"],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": false
+}

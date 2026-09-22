@@ -1,0 +1,72 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="Common.uss" />
+    <Style src="Game.uss" />
+    <ui:Template name="SettingsPanel" src="Components/SettingsPanel.uxml" />
+    <ui:Template name="ConfirmDialog" src="Components/ConfirmDialog.uxml" />
+
+    <ui:VisualElement name="app" class="app app--game" picking-mode="Ignore">
+        <ui:VisualElement name="vignette" class="layer vignette" picking-mode="Ignore" />
+
+        <!-- ============================== HUD ============================== -->
+        <ui:VisualElement name="hud" class="layer hud" picking-mode="Ignore">
+            <ui:VisualElement name="objective" class="objective is-pre" picking-mode="Ignore">
+                <ui:Label text="CHAPTER I" class="objective__chapter" />
+                <ui:Label text="The Rift Opens" class="objective__title" />
+                <ui:VisualElement class="objective__row">
+                    <ui:VisualElement class="objective__diamond" />
+                    <ui:Label text="Reach the Aether Spire" class="objective__text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="autosave" class="autosave" picking-mode="Ignore">
+                <ui:VisualElement name="autosave-spinner" class="autosave__spinner" />
+                <ui:Label text="PROGRESS SAVED" class="autosave__text" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="hud-hints" class="hud__hints is-pre" picking-mode="Ignore">
+                <ui:VisualElement class="hint">
+                    <ui:Label text="ESC" class="key" />
+                    <ui:Label text="PAUSE" class="hint__text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- ============================== PAUSE ============================== -->
+        <ui:VisualElement name="screen-pause" class="screen screen--pause">
+            <ui:VisualElement class="pause-column">
+                <ui:Label text="AETHERFALL" class="pause__kicker" />
+                <ui:Label text="PAUSED" class="pause__title" />
+                <ui:VisualElement class="menu-list">
+                    <ui:Button name="btn-resume" class="menu-button">
+                        <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
+                        <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
+                        <ui:Label text="01" class="menu-button__index" picking-mode="Ignore" />
+                        <ui:Label text="RESUME" class="menu-button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:Button name="btn-pause-settings" class="menu-button">
+                        <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
+                        <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
+                        <ui:Label text="02" class="menu-button__index" picking-mode="Ignore" />
+                        <ui:Label text="SETTINGS" class="menu-button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:Button name="btn-main-menu" class="menu-button">
+                        <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
+                        <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
+                        <ui:Label text="03" class="menu-button__index" picking-mode="Ignore" />
+                        <ui:Label text="MAIN MENU" class="menu-button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:Button name="btn-pause-quit" class="menu-button">
+                        <ui:VisualElement class="menu-button__glow" picking-mode="Ignore" />
+                        <ui:VisualElement class="menu-button__bar" picking-mode="Ignore" />
+                        <ui:Label text="04" class="menu-button__index" picking-mode="Ignore" />
+                        <ui:Label text="QUIT TO DESKTOP" class="menu-button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:Instance template="SettingsPanel" name="screen-settings" class="screen screen--center" />
+        <ui:Instance template="ConfirmDialog" name="dialog" class="layer modal" />
+        <ui:VisualElement name="fader" class="layer fader fader--on" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

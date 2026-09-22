@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="../Common.uss" />
+    <ui:VisualElement name="dialog-box" class="dialog">
+        <ui:VisualElement class="dialog__accent" picking-mode="Ignore" />
+        <ui:Label name="dialog-kicker" text="CONFIRM" class="dialog__kicker" />
+        <ui:Label name="dialog-title" text="Are you sure?" class="dialog__title" />
+        <ui:Label name="dialog-message" text="" class="dialog__message" />
+        <ui:VisualElement class="dialog__actions">
+            <ui:Button name="dialog-cancel" text="CANCEL" class="pill-button" />
+            <ui:Button name="dialog-confirm" text="CONFIRM" class="pill-button pill-button--primary" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

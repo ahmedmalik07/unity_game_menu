@@ -1,0 +1,135 @@
+/* ==========================================================================
+   AETHERFALL - in-game HUD and pause menu
+   ========================================================================== */
+
+.hud {
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.hud--dimmed {
+    opacity: 0.25;
+}
+
+/* ----------------------------------------------------------- Objective */
+
+.objective {
+    position: absolute;
+    left: 90px;
+    top: 80px;
+    transition-property: opacity, translate;
+    transition-duration: 0.9s, 1s;
+    transition-timing-function: ease-out-cubic, ease-out-cubic;
+}
+
+.objective__chapter {
+    font-size: 15px;
+    letter-spacing: 8px;
+    -unity-font-style: bold;
+    color: var(--c-accent);
+    padding: 0;
+    margin: 0 0 2px 2px;
+}
+
+.objective__title {
+    font-size: 40px;
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 0;
+    margin: 0 0 14px 0;
+}
+
+.objective__row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.objective__diamond {
+    width: 10px;
+    height: 10px;
+    rotate: 45deg;
+    border-width: 2px;
+    border-color: var(--c-accent);
+    margin: 0 14px 0 4px;
+}
+
+.objective__text {
+    font-size: 19px;
+    color: rgba(234, 240, 255, 0.85);
+    padding: 0;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------- Autosave toast */
+
+.autosave {
+    position: absolute;
+    right: 90px;
+    top: 80px;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 24px;
+    background-color: rgba(9, 12, 32, 0.8);
+    border-width: 1px;
+    border-color: var(--c-line);
+    transition-property: opacity, translate;
+    transition-duration: 0.4s, 0.4s;
+}
+
+.autosave.is-hidden {
+    translate: 0 -12px;
+}
+
+.autosave__spinner {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+}
+
+.autosave__text {
+    font-size: 13px;
+    letter-spacing: 4px;
+    -unity-font-style: bold;
+    color: var(--c-muted);
+}
+
+.hud__hints {
+    position: absolute;
+    right: 90px;
+    bottom: 70px;
+    flex-direction: row;
+    transition-property: opacity, translate;
+    transition-duration: 0.8s, 0.8s;
+}
+
+/* ----------------------------------------------------------- Pause */
+
+.screen--pause {
+    justify-content: center;
+    padding-left: 150px;
+    background-color: rgba(3, 4, 14, 0.78);
+}
+
+.pause-column {
+    justify-content: center;
+}
+
+.pause__kicker {
+    font-size: 16px;
+    letter-spacing: 11px;
+    -unity-font-style: bold;
+    color: var(--c-accent);
+    padding: 0;
+    margin: 0 0 0 6px;
+}
+
+.pause__title {
+    font-size: 96px;
+    letter-spacing: 18px;
+    -unity-font-style: bold;
+    text-shadow: 0 0 30px rgba(124, 243, 255, 0.4);
+    padding: 0;
+    margin: -4px 0 44px 0;
+}
