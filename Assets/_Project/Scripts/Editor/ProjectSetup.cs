@@ -282,20 +282,50 @@ namespace Aetherfall.Editor
     }
 
     /// <summary>
-    /// Turns on MCP for Unity's "auto-start server on load" once, so Claude Code can connect to the
-    /// editor (http://127.0.0.1:8080/mcp) as soon as Unity is open.
+    /// Starts the MCP for Unity server whenever the editor opens, so Claude Code can connect
+    /// (http://127.0.0.1:8080/mcp) without opening the MCP window first.
     /// </summary>
     [InitializeOnLoad]
     static class McpAutoStart
     {
-        const string AppliedKey = "Aetherfall.McpAutoStartApplied";
-
         static McpAutoStart()
         {
-            if (EditorPrefs.GetBool(AppliedKey, false)) return;
-            EditorPrefs.SetBool("MCPForUnity.AutoStartOnLoad", true);
-            EditorPrefs.SetBool(AppliedKey, true);
-            Debug.Log("[Aetherfall] Enabled MCP for Unity auto-start. Claude Code connects via http://127.0.0.1:8080/mcp");
+            if (Application.isBatchMode || SessionState.GetBool("Aetherfall.McpStarted", false)) return;
+            SessionState.SetBool("Aetherfall.McpStarted", true);
+            EditorApplication.delayCall += () => _ = StartAsync();
+        }
+
+        static async System.Threading.Tasks.Task StartAsync()
+        {
+            try
+            {
+                var server = MCPForUnity.Editor.Services.MCPServiceLocator.Server;
+                if (!server.IsLocalHttpServerReachable() && !server.StartLocalHttpServer(quiet: true))
+                {
+                    Debug.LogWarning("[Aetherfall] Could not start the MCP server. Use Window > MCP for Unity.");
+                    return;
+                }
+
+                double deadline = EditorApplication.timeSinceStartup + 120;
+                while (!server.IsLocalHttpServerReachable())
+                {
+                    if (EditorApplication.timeSinceStartup > deadline)
+                    {
+                        Debug.LogWarning("[Aetherfall] MCP server did not come up in time.");
+                        return;
+                    }
+                    await System.Threading.Tasks.Task.Delay(1000);
+                }
+
+                bool connected = await MCPForUnity.Editor.Services.MCPServiceLocator.Bridge.StartAsync();
+                Debug.Log(connected
+                    ? "[Aetherfall] MCP server running at http://127.0.0.1:8080/mcp"
+                    : "[Aetherfall] MCP server is up but the editor bridge did not connect.");
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning($"[Aetherfall] MCP auto-start failed: {e.Message}");
+            }
         }
     }
 }
